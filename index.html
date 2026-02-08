@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un recuerdo para ti ✨</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #1a2b5c, #040816);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  perspective: 1200px;
+}
+
+/* CIELO */
+.sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* ESTRELLAS */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: .8;
+  animation: twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; }
+  to { opacity: 1; }
+}
+
+/* COMETA */
+.comet {
+  position: absolute;
+  width: 2px;
+  height: 140px;
+  background: linear-gradient(to top, rgba(255,255,255,.9), transparent);
+  transform: rotate(35deg);
+  animation: comet 10s linear infinite;
+  opacity: .7;
+}
+
+@keyframes comet {
+  0% { transform: translate(-30vw, -40vh) rotate(35deg); }
+  100% { transform: translate(130vw, 140vh) rotate(35deg); }
+}
+
+/* TARJETA */
+.card {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.04));
+  backdrop-filter: blur(16px);
+  border-radius: 26px;
+  padding: 30px 22px;
+  width: min(92vw, 380px);
+  text-align: center;
+  box-shadow: 0 50px 120px rgba(0,0,0,.7);
+  transform-style: preserve-3d;
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateZ(140px) rotateX(6deg) rotateY(-6deg); }
+  50% { transform: translateZ(180px) rotateX(8deg) rotateY(-8deg); }
+}
+
+/* TEXTO */
+.line {
+  font-size: clamp(18px, 5vw, 24px);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  min-height: 1.7em;
+  text-shadow: 0 0 12px rgba(255,255,255,.4);
+}
+
+.glow {
+  color: #a9d7ff;
+  text-shadow:
+    0 0 15px rgba(169,215,255,.8),
+    0 0 30px rgba(169,215,255,.6);
+  font-weight: 600;
+}
+
+.signature {
+  font-size: 14px;
+  opacity: .75;
+  margin-top: 10px;
+}
+
+.tap {
+  position: absolute;
+  bottom: 12px;
+  font-size: 12px;
+  opacity: .6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sky" id="sky"></div>
+
+<div class="card" id="card">
+  <div class="line" id="t1"></div>
+  <div class="line
